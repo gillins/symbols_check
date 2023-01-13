@@ -16,6 +16,9 @@ scipy_a_hidden: scipy_a.o
 athenb: athenb.o
 	$(CC) -o athenb athenb.o scipy_a.so scipy_b.so -Wl,-rpath .
 
+athenb_hidden: athenb.o
+	$(CC) -o athenb_hidden_last athenb.o scipy_a_hidden.so scipy_b.so -Wl,-rpath .
+
 athenb_hidden_last: athenb.o
 	$(CC) -o athenb_hidden_last athenb.o scipy_b.so scipy_a_hidden.so -Wl,-rpath .
 
